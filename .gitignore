@@ -1,0 +1,33 @@
+# Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Node
+node_modules/
+dist/
+dist-ssr
+*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# LaTeX Artifacts (Recursive)
+**/*.tex
+**/*.aux
+**/*.log
+**/*.out
+**/*.toc
+**/*.synctex.gz
+**/*.fls
+**/*.fdb_latexmk
+**/*.nav
+**/*.snm
+**/*.vrb
