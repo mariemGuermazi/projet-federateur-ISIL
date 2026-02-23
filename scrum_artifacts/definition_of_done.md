@@ -1,14 +1,8 @@
 # Definition of Done (DoD)
 
-**Project:** Project Portfolio Dashboard  
+**Project:** ShareBox – Object Sharing Web Application  
 **Version:** 1.0  
-**Last Updated:** 2026-01-28
-
----
-
-## 📋 Overview
-
-The Definition of Done (DoD) is a shared understanding within the Scrum Team of what it means for work to be complete. An item is not considered "Done" until all criteria below are satisfied.
+**Last Updated:** 2026-02-16
 
 ---
 
@@ -16,35 +10,26 @@ The Definition of Done (DoD) is a shared understanding within the Scrum Team of 
 
 ### For Each Task
 - [ ] Code compiles without errors
-- [ ] Code follows project coding standards (naming conventions, formatting)
-- [ ] No hard-coded credentials or secrets in code
-- [ ] Relevant unit tests written (if applicable)
-- [ ] Code committed to feature branch with meaningful commit message
-
-### Commit Message Format
-```
-<type>(<scope>): <subject>
-
-Examples:
-feat(api): add GET endpoint for projects
-fix(ui): resolve card overflow on mobile
-docs(readme): update installation instructions
-```
+- [ ] Backend API endpoints work correctly (Node.js / Express)
+- [ ] Frontend components display correctly (Angular)
+- [ ] Code follows project coding standards (naming, formatting)
+- [ ] No hard-coded passwords, database credentials, or secrets
+- [ ] Environment variables used for configuration (.env file)
 
 ---
 
 ## ✅ User Story Level DoD
 
 ### Functional Requirements
-- [ ] All acceptance criteria from the user story are met
-- [ ] Feature works as expected in development environment
-- [ ] Feature works as expected in Docker environment
-- [ ] No console errors (browser DevTools or server logs)
+- [ ] All acceptance criteria are completed
+- [ ] Feature works correctly in development environment
+- [ ] Frontend and backend communicate correctly via REST API
+- [ ] Data is correctly stored and retrieved from SQL database
+- [ ] No console errors in browser or server
 
 ### Quality Requirements
 - [ ] Code reviewed and approved by at least one team member
 - [ ] All reviewer comments addressed
-- [ ] Merged to `main` branch via Pull Request
 - [ ] Feature demonstrated to Product Owner (if required)
 
 ---
@@ -54,8 +39,10 @@ docs(readme): update installation instructions
 ### Integration
 - [ ] All Sprint Backlog items meet User Story DoD
 - [ ] Frontend and backend integrate correctly
-- [ ] No regressions in existing functionality
-- [ ] Application starts successfully with `docker-compose up`
+- [ ] Database operations work correctly (CRUD)
+- [ ] Authentication system works correctly
+- [ ] No regression in existing features
+- [ ] Application starts successfully
 
 ### Documentation
 - [ ] README updated if new setup steps required
