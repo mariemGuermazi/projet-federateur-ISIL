@@ -56,17 +56,17 @@ docker-compose up --build
 - `guide_projet.pdf`: Master project roadmap and evaluation criteria.
 
 ## 📖 Pedagogical Roadmap
-Priority	ID	User                    Story	                                              Story Points	 Sprint	     Status
- High	   US-001	     As a user, I want to register so I can create an account	              5	        Sprint 1	✅ Done
- High	   US-002	     As a user, I want to login so I can access my account	                  5	        Sprint 1	✅ Done
- High	   US-003	     As a system, I want passwords hashed for security	                      5	        Sprint 1	✅ Done
- High	   US-004	     As a system, I want JWT authentication	                                  8	        Sprint 1	✅ Done
- High	   US-005	     As a user, I want protected routes	                                      5	        Sprint 2	✅ Done
- Medium	   US-006	     As a user, I want to access a dashboard	                              5	        Sprint 2	⏳ In Progress
- Medium	   US-007	     As a user, I want to upload files	                                      8	        Sprint 3	⬜ Planned
- Medium	   US-008	     As a user, I want to view my files	                                      5	        Sprint 3	⬜ Planned
- Medium	   US-009	     As a user, I want to download files	                                  5	        Sprint 3	⬜ Planned
- Low	   US-010	     As a user, I want a modern responsive UI	                              3	        Sprint 4	⬜ Planned
+
+ Sprint 1 : As a user, I want to register so I can create an account	             
+ Sprint 1 : As a user, I want to login so I can access my account	                  
+ Sprint 1 : As a system, I want passwords hashed for security	                    
+ Sprint 1 : As a system, I want JWT authentication	                               
+ Sprint 2 : As a user, I want protected routes
+ Sprint 2 : As a user, I want to access a dashboard
+ Sprint 3 : As a user, I want to upload files
+ Sprint 3 : As a user, I want to view my files
+ Sprint 3 : As a user, I want to download files
+ Sprint 4 : As a user, I want a modern responsive UI
 
 ---
 *© 2026 Haythem Ghazouani - Professional Software Engineering Module*
