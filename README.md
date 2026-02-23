@@ -60,19 +60,23 @@ docker-compose up --build
 - As a user, I want to register so I can create an account  
 - As a user, I want to login so I can access my account  
 - As a system, I want passwords hashed for security  
-- As a system, I want JWT authentication  
+- As a system, I want JWT authentication
+✅ Completed  
 
 ### Sprint 2
 - As a user, I want protected routes  
 - As a user, I want to access a dashboard  
+⏳ In Progress
 
 ### Sprint 3
 - As a user, I want to upload files  
 - As a user, I want to view my files  
 - As a user, I want to download files  
+⬜ Planned
 
 ### Sprint 4
 - As a user, I want a modern responsive UI  
+⬜ Planned
 
 ---
 *© 2026 Haythem Ghazouani - Professional Software Engineering Module*
