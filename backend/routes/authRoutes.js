@@ -4,9 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../config/db'); // connexion MySQL
 
-// =============================
-// ✅ REGISTER
-// =============================
+
 router.post('/register', async (req, res) => {
 
   const { name, email, password } = req.body;
