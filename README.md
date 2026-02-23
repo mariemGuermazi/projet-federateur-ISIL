@@ -56,17 +56,23 @@ docker-compose up --build
 - `guide_projet.pdf`: Master project roadmap and evaluation criteria.
 
 ## 📖 Pedagogical Roadmap
+### Sprint 1
+- As a user, I want to register so I can create an account  
+- As a user, I want to login so I can access my account  
+- As a system, I want passwords hashed for security  
+- As a system, I want JWT authentication  
 
- Sprint 1 : As a user, I want to register so I can create an account	             
- Sprint 1 : As a user, I want to login so I can access my account	                  
- Sprint 1 : As a system, I want passwords hashed for security	                    
- Sprint 1 : As a system, I want JWT authentication	                               
- Sprint 2 : As a user, I want protected routes
- Sprint 2 : As a user, I want to access a dashboard
- Sprint 3 : As a user, I want to upload files
- Sprint 3 : As a user, I want to view my files
- Sprint 3 : As a user, I want to download files
- Sprint 4 : As a user, I want a modern responsive UI
+### Sprint 2
+- As a user, I want protected routes  
+- As a user, I want to access a dashboard  
+
+### Sprint 3
+- As a user, I want to upload files  
+- As a user, I want to view my files  
+- As a user, I want to download files  
+
+### Sprint 4
+- As a user, I want a modern responsive UI  
 
 ---
 *© 2026 Haythem Ghazouani - Professional Software Engineering Module*
