@@ -1,16 +1,16 @@
-# Software Engineering Project: Spring Boot + React (Scrum)
+# Software Engineering Project: Node.js + Angular (Scrum) – ShareBox
 
 ## Phase 0: Scrum Initialization & Environment Setup
 - [x] Project Structure & Repository Initialization
 - [x] Define Product Backlog (Master User Stories)
 - [x] Create 7-Week Scrum Roadmap (Guide Project)
-- [x] Setup Development Environment (Spring Boot + Vite)
+- [x] Setup Development Environment
 
-## Phase 1: Sprint 1 - Core Backend & Architecture
-- [x] Initialize Spring Boot REST API
-- [x] Database Modeling (H2/Generic)
-- [x] Create CRUD Endpoints for a simple use case
-- [x] Write Tutorial: "Spring Boot Essentials"
+## Phase 1: Sprint 1 -  Authentication Backend & Frontend
+- [x] Initialize Node.js REST API
+- [x] Database Modeling (MySQL)
+- [x] Authentication Implementation
+- [x] Angular Authentication UI
 
 ## Phase 2: Sprint 2 - Frontend Foundation
 - [x] Initialize React + Vite Project
