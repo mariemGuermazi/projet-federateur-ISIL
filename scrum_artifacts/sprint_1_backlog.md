@@ -11,32 +11,17 @@
 
 ## 📋 Sprint Backlog Items
 
-### US-001: View All Projects (5 SP)
-| Task ID | Task Description | Assignee | Estimate | Status |
-|:-------:|------------------|:--------:|:--------:|:------:|
-| T-001.1 | Create `Project` JPA Entity | Dev 1 | 2h | ✅ Done |
-| T-001.2 | Create `ProjectRepository` interface | Dev 1 | 1h | ✅ Done |
-| T-001.3 | Implement `ProjectController` with GET /projects | Dev 2 | 2h | ✅ Done |
-| T-001.4 | Create React `ProjectList` component | Dev 3 | 3h | ✅ Done |
-| T-001.5 | Style project cards with CSS | Dev 3 | 2h | ✅ Done |
-
-### US-002: View Project Details (3 SP)
-| Task ID | Task Description | Assignee | Estimate | Status |
-|:-------:|------------------|:--------:|:--------:|:------:|
-| T-002.1 | Implement GET /projects/{id} endpoint | Dev 2 | 1h | ✅ Done |
-| T-002.2 | Create `ProjectDetail` React component | Dev 3 | 2h | ✅ Done |
-| T-002.3 | Add conditional rendering for details view | Dev 3 | 1h | ✅ Done |
-
-### US-003: REST API for Project Data (8 SP)
-| Task ID | Task Description | Assignee | Estimate | Status |
-|:-------:|------------------|:--------:|:--------:|:------:|
-| T-003.1 | Configure Spring Boot project with dependencies | Dev 1 | 2h | ✅ Done |
-| T-003.2 | Create `Employee` JPA Entity | Dev 1 | 2h | ✅ Done |
-| T-003.3 | Create `EmployeeRepository` interface | Dev 1 | 1h | ✅ Done |
-| T-003.4 | Implement `EmployeeController` with CRUD | Dev 2 | 3h | ✅ Done |
-| T-003.5 | Write `DataSeeder` for initial data | Dev 2 | 2h | ✅ Done |
-| T-003.6 | Configure CORS for frontend access | Dev 2 | 1h | ✅ Done |
-| T-003.7 | Test all endpoints with Postman | QA | 2h | ✅ Done |
+| Task ID | User Story | Task Description                    | Type     | Priority | Story Points | Status |
+| ------- | ---------- | ----------------------------------- | -------- | -------- | ------------ | ------ |
+| T1      | US‑001     | Create `users` table in MySQL       | Backend  | 🔴 High  | 2            | ✅ Done |
+| T2      | US‑001     | Implement POST `/register` route    | Backend  | 🔴 High  | 2            | ✅ Done |
+| T3      | US‑003     | Hash password using bcrypt          | Backend  | 🔴 High  | 1            | ✅ Done |
+| T4      | US‑002     | Implement POST `/login` route       | Backend  | 🔴 High  | 2            | ✅ Done |
+| T5      | US‑004     | Generate JWT token on login         | Backend  | 🔴 High  | 2            | ✅ Done |
+| T6      | US‑001     | Create Register component (Angular) | Frontend | 🔴 High  | 3            | ✅ Done |
+| T7      | US‑002     | Create Login component (Angular)    | Frontend | 🔴 High  | 3            | ✅ Done |
+| T8      | US‑002     | Store JWT in localStorage           | Frontend | 🔴 High  | 1            | ✅ Done |
+| T9      | US‑004     | Configure `.env` with JWT_SECRET    | Backend  | 🔴 High  | 1            | ✅ Done |
 
 ---
 
