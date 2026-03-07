@@ -1,1 +1,30 @@
-<p>dashboard works!</p>
+<div class="dashboard-shell">
+  <section class="dashboard-card">
+    <div class="dashboard-header">
+      <h2>Dashboard</h2>
+      <p>Manage your published items and discover available resources.</p>
+    </div>
+
+    <div class="actions-row">
+      <button class="btn btn-primary" (click)="goToAddItem()">Publish New Item</button>
+      <button class="btn btn-secondary" (click)="goToItems()">View All Items</button>
+      <button class="btn btn-ghost" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="section-head">
+      <h3>Available Items</h3>
+      <span>{{ items.length }} items</span>
+    </div>
+
+    <div class="items-grid">
+      <div class="item-card" *ngFor="let item of items">
+        <div class="item-top">
+          <h4>{{ item?.title }}</h4>
+          <span class="badge">Deposit {{ item?.deposit }} $</span>
+        </div>
+        <p>{{ item?.description }}</p>
+        <button class="btn btn-secondary" (click)="viewItem(item?.id)">View Details</button>
+      </div>
+    </div>
+  </section>
+</div>

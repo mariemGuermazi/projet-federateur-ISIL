@@ -1,0 +1,93 @@
+.publish-shell {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.publish-card {
+  width: 100%;
+  max-width: 760px;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.publish-head h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1f2937;
+}
+
+.publish-head p {
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.top-actions {
+  margin: 16px 0 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.publish-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.publish-form label {
+  color: #374151;
+  font-size: 0.92rem;
+}
+
+.publish-form input,
+.publish-form select,
+.publish-form textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid #bfdbfe;
+  background: #f9fafb;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.publish-form textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.publish-form input:focus,
+.publish-form select:focus,
+.publish-form textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.35);
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  margin-top: 8px;
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}

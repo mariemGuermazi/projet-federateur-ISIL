@@ -1,0 +1,37 @@
+<div class="details-shell" *ngIf="item">
+  <section class="details-card">
+    <div class="top-actions">
+      <button class="btn btn-secondary" type="button" routerLink="/items">Back to Items</button>
+      <button class="btn btn-secondary" type="button" routerLink="/dashboard">Back to Dashboard</button>
+    </div>
+
+    <div class="title-row">
+      <h2>{{ item.title }}</h2>
+      <span class="badge">Deposit {{ item.deposit || 0 }} $</span>
+    </div>
+
+    <p class="description">{{ item.description || 'No description provided.' }}</p>
+
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="label">Category</span>
+        <strong>{{ item.category || item.category_id || 'N/A' }}</strong>
+      </div>
+      <div class="meta-item">
+        <span class="label">Lending Duration</span>
+        <strong>{{ item.lending_duration || 0 }} days</strong>
+      </div>
+      <div class="meta-item">
+        <span class="label">Published</span>
+        <strong>{{ item.created_at ? (item.created_at | date:'mediumDate') : 'N/A' }}</strong>
+      </div>
+    </div>
+
+    <div class="conditions">
+      <h3>Conditions</h3>
+      <p>{{ item.condition_rules || 'No specific conditions.' }}</p>
+    </div>
+
+    <button class="btn btn-primary" type="button">Request Borrow</button>
+  </section>
+</div>

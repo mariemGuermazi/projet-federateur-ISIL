@@ -1,0 +1,40 @@
+<div class="publish-shell">
+  <section class="publish-card">
+    <div class="publish-head">
+      <h2>Publish New Item</h2>
+      <p>Fill in item details and make it available for lending.</p>
+    </div>
+
+    <div class="top-actions">
+      <button class="btn btn-secondary" type="button" routerLink="/dashboard">Back to Dashboard</button>
+      <button class="btn btn-secondary" type="button" routerLink="/items">Go to Items</button>
+    </div>
+
+    <form class="publish-form" (ngSubmit)="addItem()">
+      <label for="title">Item Name</label>
+      <input id="title" type="text" [(ngModel)]="item.title" name="title" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="item.description" name="description"></textarea>
+
+      <label for="category">Category</label>
+      <select id="category" [(ngModel)]="item.category_id" name="category_id">
+        <option value="1">Electronics</option>
+        <option value="2">Tools</option>
+        <option value="3">Books</option>
+        <option value="4">Sports</option>
+      </select>
+
+      <label for="duration">Lending Duration (days)</label>
+      <input id="duration" type="number" [(ngModel)]="item.lending_duration" name="duration">
+
+      <label for="deposit">Deposit</label>
+      <input id="deposit" type="number" [(ngModel)]="item.deposit" name="deposit">
+
+      <label for="conditions">Conditions</label>
+      <textarea id="conditions" [(ngModel)]="item.condition_rules" name="conditions"></textarea>
+
+      <button class="btn btn-primary" type="submit">Publish Item</button>
+    </form>
+  </section>
+</div>

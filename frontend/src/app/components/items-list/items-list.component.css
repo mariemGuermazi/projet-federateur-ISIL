@@ -1,11 +1,11 @@
-.dashboard-shell {
+.items-shell {
   min-height: calc(100vh - 90px);
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   padding: 24px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.dashboard-card {
+.items-card {
   max-width: 1100px;
   margin: 0 auto;
   background: #ffffff;
@@ -15,30 +15,28 @@
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
 }
 
-.dashboard-header h2 {
+.items-head h2 {
   margin: 0;
   color: #1f2937;
   font-size: 2rem;
 }
 
-.dashboard-header p {
-  margin: 10px 0 0;
+.items-head p {
+  margin: 8px 0 0;
   color: #6b7280;
 }
 
-.actions-row {
-  margin-top: 18px;
+.top-actions {
+  margin: 16px 0 20px;
   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 12px;
 }
 
 .section-head {
-  margin-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #1f2937;
 }
 
 .section-head h3 {
@@ -46,8 +44,8 @@
 }
 
 .section-head span {
-  font-size: 0.9rem;
   color: #6b7280;
+  font-size: 0.9rem;
 }
 
 .items-grid {
@@ -77,8 +75,8 @@
 }
 
 .item-card p {
-  color: #4b5563;
   margin: 10px 0 14px;
+  color: #4b5563;
 }
 
 .badge {
@@ -90,18 +88,21 @@
   font-size: 0.75rem;
 }
 
+.empty-state {
+  margin-top: 20px;
+  border: 1px dashed #bfdbfe;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
 .btn {
   border: 0;
   border-radius: 12px;
   padding: 10px 14px;
   cursor: pointer;
   font-weight: 600;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  opacity: 0.95;
 }
 
 .btn-primary {
@@ -113,10 +114,4 @@
   background: #eff6ff;
   color: #1d4ed8;
   border: 1px solid #bfdbfe;
-}
-
-.btn-ghost {
-  background: #f3f4f6;
-  color: #374151;
-  border: 1px solid #e5e7eb;
 }
