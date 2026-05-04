@@ -5,6 +5,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ItemsListComponent } from './components/items-list/items-list.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { MyRequestsComponent } from './components/my-requests/my-requests.component';
+import { OwnerRequestsComponent } from './components/owner-requests/owner-requests.component';
 import { authGuard } from './guards/auth.guard';
 
 
@@ -16,6 +18,8 @@ export const routes: Routes = [
   { path: 'items', component: ItemsListComponent, canActivate: [authGuard] },
   { path: 'add-item', component: AddItemComponent, canActivate: [authGuard] },
   { path: 'item/:id', component: ItemDetailsComponent, canActivate: [authGuard] },
+  { path: 'my-requests', component: MyRequestsComponent, canActivate: [authGuard] },
+  { path: 'owner-requests', component: OwnerRequestsComponent, canActivate: [authGuard] },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];

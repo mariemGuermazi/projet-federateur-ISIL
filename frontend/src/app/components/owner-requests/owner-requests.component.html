@@ -1,0 +1,30 @@
+<div class="requests-shell">
+  <section class="requests-card">
+    <div class="top-actions">
+      <button class="btn btn-secondary" type="button" routerLink="/dashboard">Back to Dashboard</button>
+      <button class="btn btn-secondary" type="button" routerLink="/my-requests">My Requests</button>
+    </div>
+
+    <h2>Owner Requests</h2>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <div class="requests-list" *ngIf="requests.length > 0; else emptyState">
+      <article class="request-card" *ngFor="let request of requests">
+        <h3>{{ request.item_title || ('Item #' + request.item_id) }}</h3>
+        <p><strong>Borrower:</strong> {{ request.borrower_name || ('User #' + request.borrower_id) }}</p>
+        <p><strong>Period:</strong> {{ request.start_date | date:'mediumDate' }} - {{ request.end_date | date:'mediumDate' }}</p>
+        <p><strong>Status:</strong> <span class="status">{{ request.status }}</span></p>
+
+        <div class="row-actions" *ngIf="request.status === 'pending'">
+          <button class="btn btn-accept" (click)="updateStatus(request.id, 'accepted')">Accept</button>
+          <button class="btn btn-reject" (click)="updateStatus(request.id, 'rejected')">Reject</button>
+        </div>
+      </article>
+    </div>
+
+    <ng-template #emptyState>
+      <p class="empty">No incoming requests yet.</p>
+    </ng-template>
+  </section>
+</div>

@@ -3,6 +3,8 @@
     <div class="top-actions">
       <button class="btn btn-secondary" type="button" routerLink="/items">Back to Items</button>
       <button class="btn btn-secondary" type="button" routerLink="/dashboard">Back to Dashboard</button>
+      <button class="btn btn-secondary" type="button" routerLink="/my-requests">My Requests</button>
+      <button class="btn btn-secondary" type="button" routerLink="/owner-requests">Owner Requests</button>
     </div>
 
     <div class="title-row">
@@ -32,6 +34,19 @@
       <p>{{ item.condition_rules || 'No specific conditions.' }}</p>
     </div>
 
-    <button class="btn btn-primary" type="button">Request Borrow</button>
+    <div class="request-form">
+      <h3>Request Item</h3>
+
+      <label for="startDate">Start Date</label>
+      <input id="startDate" type="date" [(ngModel)]="startDate" />
+
+      <label for="endDate">End Date</label>
+      <input id="endDate" type="date" [(ngModel)]="endDate" />
+
+      <button class="btn btn-primary" type="button" (click)="requestBorrow()">Request Item</button>
+
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </div>
   </section>
 </div>

@@ -1,12 +1,46 @@
 const db = require('../config/db');
+const jwt = require('jsonwebtoken');
+
+function getOwnerIdFromRequest(req) {
+  const authHeader = req.header('Authorization');
+  if (authHeader) {
+    const token = authHeader.startsWith('Bearer ')
+      ? authHeader.slice(7).trim()
+      : authHeader.trim();
+
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'SECRET_KEY');
+      if (decoded?.id) {
+        return Number(decoded.id);
+      }
+    } catch (error) {
+      // Fallback to body owner_id for compatibility with existing clients
+    }
+  }
+
+  const bodyOwnerId = req.body?.owner_id;
+  if (bodyOwnerId !== undefined && bodyOwnerId !== null && bodyOwnerId !== '') {
+    const parsed = Number(bodyOwnerId);
+    if (!Number.isNaN(parsed)) {
+      return parsed;
+    }
+  }
+
+  return null;
+}
 
 // Ajouter un objet
 exports.addItem = (req, res) => {
 
-  const { title, description, category_id, lending_duration, deposit, condition_rules, owner_id } = req.body;
+  const { title, description, category_id, lending_duration, deposit, condition_rules } = req.body;
+  const ownerId = getOwnerIdFromRequest(req);
 
   if (!title || !String(title).trim()) {
     return res.status(400).json({ message: "Title is required" });
+  }
+
+  if (!ownerId) {
+    return res.status(400).json({ message: "owner_id is required. Please login and publish again." });
   }
 
   const sql = `
@@ -23,7 +57,7 @@ exports.addItem = (req, res) => {
       lending_duration || null,
       deposit || null,
       condition_rules || null,
-      owner_id || null
+      ownerId
     ],
     (err, result) => {
 

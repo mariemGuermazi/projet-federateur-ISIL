@@ -120,3 +120,59 @@
   color: #374151;
   border: 1px solid #e5e7eb;
 }
+
+@media (max-width: 900px) {
+  .dashboard-shell {
+    padding: 16px;
+  }
+
+  .dashboard-card {
+    padding: 18px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.65rem;
+  }
+
+  .section-head {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-shell {
+    padding: 10px;
+    min-height: calc(100vh - 120px);
+  }
+
+  .dashboard-card {
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .dashboard-header p {
+    font-size: 0.92rem;
+  }
+
+  .actions-row .btn {
+    width: 100%;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -19,7 +19,8 @@ export class AddItemComponent {
     category_id: '',
     lending_duration: '',
     deposit: '',
-    condition_rules: ''
+    condition_rules: '',
+    owner_id: ''
   };
 
   constructor(
@@ -28,6 +29,15 @@ export class AddItemComponent {
   ) {}
 
   addItem() {
+    const ownerId = this.getCurrentUserId();
+    if (!ownerId) {
+      alert("Session expired. Please login again.");
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    this.item.owner_id = ownerId;
+
     this.itemService.addItem(this.item).subscribe({
       next: () => {
         alert("Item published successfully");
@@ -38,6 +48,22 @@ export class AddItemComponent {
         alert(message);
       }
     });
+  }
+
+  private getCurrentUserId(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return null;
+    }
+
+    try {
+      const payload = token.split('.')[1];
+      const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
+      const decoded = JSON.parse(atob(base64));
+      return decoded?.id ? String(decoded.id) : null;
+    } catch (error) {
+      return null;
+    }
   }
 
 }

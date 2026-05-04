@@ -19,6 +19,13 @@ export class ItemService {
   }
 
   addItem(item: any){
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.http.post(this.api, item, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+    }
+
     return this.http.post(this.api, item);
   }
 
