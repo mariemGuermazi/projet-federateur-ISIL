@@ -11,6 +11,13 @@ export class BorrowService {
   constructor(private http: HttpClient) {}
 
   createBorrowRequest(payload: any) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.http.post(this.api, payload, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+    }
+
     return this.http.post(this.api, payload);
   }
 

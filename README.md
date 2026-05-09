@@ -1,82 +1,138 @@
-﻿# Agile Software Engineering: Full-Stack Spring Boot & React
+# ShareBox - Full-Stack Node.js + Angular
 
-**members:**mariem guermazi , lakhdar ibtihel , mohamed yassine abada
+**Members:** Mariem Guermazi, Lakhdar Ibtihel, Mohamed Yassine Abada  
 **Methodology:** Scrum (Agile)  
-**Architecture:** Architecture 3 tiers MVC
+**Architecture:** 3-tier MVC (Frontend / API / Database)
 
-## 🏗️ Project Architecture
+## Project Architecture
 ![Project Architecture Diagram](docs/ArchitectureProjet.png)
 
-## 📋 Project Overview
-This project, ShareBox, is a web-based application designed to promote object sharing between individuals instead of purchasing rarely used items. The platform aims to reduce overconsumption while encouraging an eco-friendly and collaborative community.
+## Project Overview
+ShareBox is a web platform that promotes object sharing between users instead of buying rarely used items.
 
-ShareBox allows users to create accounts, publish objects they are willing to lend, search for available objects, and request reservations. A simple messaging system enables communication between lenders and borrowers to organize the loan process.
+The platform allows users to:
+- create accounts and login,
+- publish items,
+- browse available items,
+- request item borrowing,
+- receive notifications when requests are accepted or rejected.
 
-The project follows an Agile (Scrum) approach, focusing on a limited set of core functionalities to deliver a clear and functional Minimum Viable Product (MVP).
+The project follows Scrum to deliver an MVP with clear and usable core features.
 
-### Key Features
-- **Backend:**  Node.js with Express for REST API development.
-- **Frontend:** Angular for a responsive and user-friendly interface.
-- **Database:** SQL (MySQL and MongoDB) for data persistence.
-- **Scrum Artifacts:** Scrum with Product Backlog and sprint-based development.
-- **DevOps:** Fully containerized architecture with Docker Compose.
-- **CI/CD:** Automated workflows via GitHub Actions.
+## Tech Stack
+- **Frontend:** Angular 19
+- **Backend:** Node.js + Express
+- **Database:** MySQL
+- **Authentication:** JWT
+- **Versioning/CI:** GitHub + GitHub Actions
 
-## 🗄️ Database Architecture
-The project features a complete, persistent database setup:
-- **Containerized:** PostgreSQL runs in a dedicated Docker container.
-- **Persistence:** Volume mapping (`./data/postgres`) ensures data remains available across container restarts.
-- **Auto-Seeding:** A `DataSeeder` class automatically populates the database with initial users, projects, and employees on startup.
-- **Tutorial:** See `tutos/deployment_docker_se.pdf` for a deep dive into persistence and orchestration.
+## Implemented Features
+- User registration and login
+- JWT-based authentication
+- Protected actions/routes
+- Publish new item
+- Browse items and item details
+- Borrow request flow
+- Owner accept/reject flow
+- Notifications in navbar (count + dropdown, per user)
 
-## 🚀 CI/CD Pipeline
-We use **GitHub Actions** to automate quality control:
-- **Java Build:** Continuous Integration for the Spring Boot backend using Maven.
-- **React Build:** Continuous Integration for the frontend using Node.js.
-- **Docker Validation:** Automated build checks for Docker images to ensure deployment readiness.
-- **Configuration:** Located in `.github/workflows/main.yml`.
+## Notifications
+- API endpoint: `GET /notifications/:userId`
+- Source: `notifications` table in MySQL
+- Frontend: bell icon in navbar with badge and dropdown
+- Status colors:
+- `accepted` in green
+- `rejected` in red
 
-## 🏁 Quick Start: Running the Full Stack
-Ensure you have **Docker Desktop** installed, then run:
+## API Overview
+### Auth
+- `POST /api/auth/register`
+- `POST /api/auth/login`
 
+### Items
+- `GET /items`
+- `GET /items/:id`
+- `POST /items` (auth required)
+
+### Borrow Requests
+- `POST /borrow-requests` (auth required)
+- `GET /borrow-requests/user/:id`
+- `GET /borrow-requests/owner/:id`
+- `PUT /borrow-requests/:id` (accepted/rejected)
+
+### Notifications
+- `GET /notifications/:userId`
+
+## Database
+Main tables:
+- `users`
+- `items`
+- `borrow_requests`
+- `notifications`
+- `categories`
+
+## Local Run
+### 1) Backend
 ```bash
-docker-compose up --build
+cd backend
+npm install
 ```
 
-- **Frontend:** [http://localhost:3000](http://localhost:3000)
-- **Backend API:** [http://localhost:8080/api/projects](http://localhost:8080/api/projects)
-- **H2 Console (Dev):** [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+Create a `.env` file in `backend/`:
+```env
+PORT=5000
+DB_HOST=localhost
+DB_USER=your_mysql_user
+DB_PASSWORD=your_mysql_password
+DB_NAME=sharebox
+JWT_SECRET=your_jwt_secret
+```
 
-## 📂 Repository Structure
-- `backend/`: Java Spring Boot source code and Dockerfile.
-- `frontend/`: React source code and multi-stage Dockerfile.
-- `docs/`: Scrum deliverables (Backlog, Sprint Reviews).
-- `tutos/`: Generated pedagogical PDF guides (Step-by-Step).
-- `scrum_artifacts/`: Complete Scrum documentation (Backlogs, DoD, Templates).
-- `guide_projet.pdf`: Master project roadmap and evaluation criteria.
+Run backend:
+```bash
+node app.js
+```
 
-## 📖 Pedagogical Roadmap
+### 2) Frontend
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Default URLs:
+- Frontend: `http://localhost:4200`
+- Backend API: `http://localhost:5000`
+
+## Repository Structure
+- `backend/`: Express API (controllers, routes, middleware, config)
+- `frontend/`: Angular application (components, services, guards)
+- `docs/`: project documentation and diagrams
+- `scrum_artifacts/`: Scrum artifacts and templates
+- `tutos/`: support and tutorial documents
+
+## Scrum Roadmap
 ### Sprint 1
-- As a user, I want to register so I can create an account  
-- As a user, I want to login so I can access my account  
-- As a system, I want passwords hashed for security  
-- As a system, I want JWT authentication
-✅ Completed  
+- User registration
+- User login
+- Password hashing
+- JWT authentication
+✅ Completed
 
 ### Sprint 2
-- As a user, I want protected routes  
-- As a user, I want to access a dashboard  
-⏳ In Progress
+- Protected routes/actions
+- Dashboard and core navigation
+✅ Completed
 
 ### Sprint 3
-- As a user, I want to upload files  
-- As a user, I want to view my files  
-- As a user, I want to download files  
-⬜ Planned
+- Borrow request management
+- Owner-side accept/reject workflow
+✅ Completed
 
 ### Sprint 4
-- As a user, I want a modern responsive UI  
-⬜ Planned
+- Modern responsive UI improvements
+- Notification system (navbar bell + dropdown)
+✅ Completed
 
 ---
-*© 2026 Haythem Ghazouani - Professional Software Engineering Module*
+*© 2026 ShareBox Project - Agile Software Engineering Module*

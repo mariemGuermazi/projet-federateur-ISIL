@@ -5,6 +5,7 @@ const authMiddleware = require("./middleware/authMiddleware");
 require("dotenv").config();
 const itemsRoutes = require('./routes/itemsRoutes');
 const borrowRoutes = require("./routes/borrowRoutes");
+const notificationsRoutes = require("./routes/notificationsRoutes");
 const initBorrowRequestsTable = require("./config/initBorrowRequestsTable");
 
 const db = require("./config/db");
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/items', itemsRoutes);
 app.use("/borrow-requests", borrowRoutes);
+app.use("/notifications", notificationsRoutes);
 
 initBorrowRequestsTable();
 

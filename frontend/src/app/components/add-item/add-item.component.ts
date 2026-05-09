@@ -31,8 +31,9 @@ export class AddItemComponent {
   addItem() {
     const ownerId = this.getCurrentUserId();
     if (!ownerId) {
-      alert("Session expired. Please login again.");
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login'], {
+        queryParams: { returnUrl: '/add-item' }
+      });
       return;
     }
 

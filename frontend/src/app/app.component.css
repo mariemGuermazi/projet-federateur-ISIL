@@ -27,6 +27,101 @@
   color:#1f2937;
 }
 
+.links{
+  display:flex;
+  align-items:center;
+}
+
+.notif-wrapper{
+  position:relative;
+  margin-left:15px;
+}
+
+.notif-btn{
+  border:1px solid #1abc9c;
+  background:transparent;
+  color:white;
+  font-weight:bold;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.notif-btn:hover{
+  background:#1abc9c;
+  color:#1f2937;
+}
+
+.notif-dropdown{
+  position:absolute;
+  right:0;
+  top:44px;
+  width:280px;
+  max-height:300px;
+  overflow:auto;
+  background:white;
+  color:#1f2937;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  padding:10px;
+  z-index:1000;
+}
+
+.notif-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 6px;
+  border-bottom:1px solid #f1f5f9;
+  gap:10px;
+}
+
+.notif-item:last-child{
+  border-bottom:none;
+}
+
+.notif-title{
+  flex:1;
+  font-size:14px;
+}
+
+.notif-status{
+  font-size:12px;
+  font-weight:bold;
+  text-transform:capitalize;
+}
+
+.status-accepted{
+  color:#16a34a;
+}
+
+.status-rejected{
+  color:#dc2626;
+}
+
+.notif-empty{
+  padding:8px 6px;
+  color:#6b7280;
+  font-size:14px;
+}
+
+.logout-btn{
+  margin-left:15px;
+  border:1px solid #1abc9c;
+  background:transparent;
+  color:white;
+  font-weight:bold;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.logout-btn:hover{
+  background:#1abc9c;
+  color:#1f2937;
+}
+
 .container{
   padding:20px;
 }

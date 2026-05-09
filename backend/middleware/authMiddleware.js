@@ -2,14 +2,17 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function (req, res, next) {
 
-  const token = req.header('Authorization');
+  const authHeader = req.header('Authorization');
+  const token = authHeader && authHeader.startsWith('Bearer ')
+    ? authHeader.slice(7).trim()
+    : authHeader;
 
   if (!token) {
     return res.status(401).json({ message: "Accès refusé" });
   }
 
   try {
-    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    const verified = jwt.verify(token, process.env.JWT_SECRET || 'SECRET_KEY');
     req.user = verified;
     next();
   } catch (err) {

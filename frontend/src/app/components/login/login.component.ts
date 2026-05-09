@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -15,14 +15,19 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   onSubmit() {
     this.http.post<any>('http://localhost:5000/api/auth/login', this.user)
       .subscribe({
         next: (res) => {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['/dashboard']);
+          const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/dashboard';
+          this.router.navigateByUrl(returnUrl);
         },
         error: () => alert("Email ou mot de passe incorrect")
       });

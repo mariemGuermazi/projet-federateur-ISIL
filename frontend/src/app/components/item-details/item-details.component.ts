@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ItemService } from '../../services/item.service';
 import { BorrowService } from '../../services/borrow.service';
@@ -23,6 +23,7 @@ export class ItemDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private itemService: ItemService,
     private borrowService: BorrowService
   ) {}
@@ -42,10 +43,14 @@ export class ItemDetailsComponent implements OnInit {
     this.successMessage = '';
     this.errorMessage = '';
 
-    if (!this.currentUserId) {
-      this.errorMessage = 'You must be logged in to request this item.';
+    const currentUserId = this.borrowService.getCurrentUserId();
+    if (!currentUserId) {
+      this.router.navigate(['/login'], {
+        queryParams: { returnUrl: this.router.url }
+      });
       return;
     }
+    this.currentUserId = currentUserId;
 
     if (!this.item?.id) {
       this.errorMessage = 'This item cannot be requested right now.';

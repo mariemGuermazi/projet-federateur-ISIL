@@ -2,6 +2,13 @@ const db = require('../config/db');
 const jwt = require('jsonwebtoken');
 
 function getOwnerIdFromRequest(req) {
+  if (req.user?.id) {
+    const userId = Number(req.user.id);
+    if (!Number.isNaN(userId)) {
+      return userId;
+    }
+  }
+
   const authHeader = req.header('Authorization');
   if (authHeader) {
     const token = authHeader.startsWith('Bearer ')
@@ -15,14 +22,6 @@ function getOwnerIdFromRequest(req) {
       }
     } catch (error) {
       // Fallback to body owner_id for compatibility with existing clients
-    }
-  }
-
-  const bodyOwnerId = req.body?.owner_id;
-  if (bodyOwnerId !== undefined && bodyOwnerId !== null && bodyOwnerId !== '') {
-    const parsed = Number(bodyOwnerId);
-    if (!Number.isNaN(parsed)) {
-      return parsed;
     }
   }
 
